@@ -49,7 +49,7 @@ THIRD_PARTY_APPS = (
     'rest_framework',
     'rest_framework_docs',
     'rest_framework.authtoken',
-    'phonenumber_field', # To phone field
+    'phonenumber_field',  # To phone field
     # 'django_filters',
     'django_extensions',
     'modeltranslation',
@@ -239,7 +239,7 @@ AUTHENTICATION_BACKENDS = (
 # Some really nice defaults
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = "optional"
+ACCOUNT_EMAIL_VERIFICATION = "none"
 ACCOUNT_EMAIL_SUBJECT_PREFIX = env('DJANGO_EMAIL_SUBJECT_PREFIX', default='[Semillas] ')
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
@@ -258,7 +258,7 @@ LOGIN_URL = 'account_login'
 AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
 
 SOCIALACCOUNT_PROVIDERS = {
-    'openid': { 'SERVERS': [] },
+    'openid': {'SERVERS': []},
     'facebook': {
         'METHOD': 'oauth2',
         'SCOPE': ['email', 'public_profile'],
@@ -276,7 +276,7 @@ SOCIALACCOUNT_PROVIDERS = {
             'gender',
             'updated_time'],
         'EXCHANGE_TOKEN': True,
-#       'LOCALE_FUNC': 'path.to.callable',
+        #       'LOCALE_FUNC': 'path.to.callable',
         'VERIFIED_EMAIL': False,
         'VERSION': 'v2.4'
     }
@@ -296,8 +296,8 @@ ADMIN_URL = r'^admin/'
 from django.utils.translation import ugettext_lazy as _
 
 LANGUAGES = [
-  ('es', _('Spanish')),
-  ('en', _('English')),
+    ('es', _('Spanish')),
+    ('en', _('English')),
 ]
 
 MODELTRANSLATION_FALLBACK_LANGUAGES = ('en', 'es')
@@ -327,9 +327,9 @@ REST_FRAMEWORK = {
         'django_filters.rest_framework.DjangoFilterBackend',
         'rest_framework_word_filter.FullWordSearchFilter',
     ),
-	'DEFAULT_PAGINATION_CLASS':
-		'semillas_backend.utils.link_header_pagination.LinkHeaderPagination',
-	'PAGE_SIZE': 20,
+    'DEFAULT_PAGINATION_CLASS':
+    'semillas_backend.utils.link_header_pagination.LinkHeaderPagination',
+        'PAGE_SIZE': 20,
 }
 
 REST_AUTH_SERIALIZERS = {
@@ -337,7 +337,7 @@ REST_AUTH_SERIALIZERS = {
 }
 
 # In order to visualize every api method on Swagger, need to add SessionAuthentication to DEFAULT_AUTHENTICATION_CLASSES, but it will bring CSRF problems.
-#SWAGGER_SETTINGS = {
+# SWAGGER_SETTINGS = {
 #	'USE_SESSION_AUTH': False,
 #    'SECURITY_DEFINITIONS': {
 #        'api_key': {
@@ -355,9 +355,9 @@ MODELTRANSLATION_TRANSLATION_FILES = (
     'services.translation',
 )
 
-#Uploaded to S3, in root of bucket
+# Uploaded to S3, in root of bucket
 SERVICE_PLACEHOLDER_PHOTO = 'placeholders/service_placeholder.jpg'
 
-CURRENCY_NAME = env('CURRENCY_NAME', default='Semillas') #Plural
-WALLET_MINIMUM_AMOUNT = Decimal(-20)
-WALLET_INITIAL_AMOUNT = Decimal(0)
+CURRENCY_NAME = env('CURRENCY_NAME', default='Semillas')  # Plural
+WALLET_MINIMUM_AMOUNT = Decimal(0)
+WALLET_INITIAL_AMOUNT = Decimal(10)
